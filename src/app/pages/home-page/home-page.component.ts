@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../api.service';
 
@@ -10,13 +10,19 @@ import { ApiService } from '../../api.service';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
+  [x: string]:any;
+  inputAdd!: string;
+  items: any;
 
   constructor(private api: ApiService){}
-    todos: any;
+    todos: any; 
 
     ngOnInit(){
       this.api.getTodo().subscribe((data: any) => {
-        this.todos=data
-      })
-    }
+      this.todos=data;
+    })
+  }
+  delete(id: any){
+    this.todos = this.todos.filter((e : {id:any})=> e.id != id)
+  }
 }

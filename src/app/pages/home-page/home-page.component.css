@@ -13,3 +13,7 @@
 i,.addInput{
     cursor: pointer;
 }
+ input[type=checkbox]:checked + p.strikethrough {
+    text-decoration: line-through;
+    color: red;
+} 
