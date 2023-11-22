@@ -5,14 +5,15 @@
     <div class="container d-flex flex-column justify-content-center align-items-center">
         
         <div class="addInput my-3">
-            <input class="inputAdd" type="text">&nbsp;
+            <input class="inputAdd" type="text" [(ngModel)]="newTaskTitle" />&nbsp; 
+            <i class="bi bi-plus text-danger" (click)="addNewTask()"></i>
         </div>
 
         <div class="box p-5">
             <ul class="List">
                 @for (item of todos; track item.id) {
                 <li class="d-flex justify-content-between">
-                    <input type="checkbox" name="select" id="" value="1">
+                    <input type="checkbox" class="" name="select" id="" value="1">
 
                     <p [ngClass]="item.completed ? 'compl strikethrough' : 'strikethrough'">{{item.completed ? " " : ""}}{{item.title}}</p>
                     
